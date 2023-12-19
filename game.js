@@ -150,7 +150,7 @@ class Game {
                 if (!this.songEnd) {
                     this.addNote(); //새 노트 업데이트
                     this.deleteNote();
-                    this.detectCollision();
+                    //this.detectCollision();
                     this.hitAndMiss();
 
                     //디스플레이
@@ -219,7 +219,7 @@ class Game {
         
     }
 
-    detectCollision() {
+    /*detectCollision() {
         let deletedNoteIdx = [];
         for (let i = 0; i < this.displayedNotes.length; i++) { //가장 오래된 노트부터 살핌
             let checkNote = this.displayedNotes[i];
@@ -244,10 +244,25 @@ class Game {
         for (let i = deletedNoteIdx.length - 1; i >= 0; i--) {
             this.displayedNotes.splice(deletedNoteIdx[i], 1);
         }
-    }
+    }*/
 
     buttonPressed(lane) { //key가 눌려지면 실행
         lanePressed[lane] = 1;
+        for (let i = 0; i < this.displayedNotes.length; i++) { //가장 오래된 노트부터 살핌
+            let checkNote = this.displayedNotes[i];
+
+            if (checkNote.y + checkNote.height/2 < laneDetected) { //이번에 살피는 노트가 레인에 닿지 않음
+                break; //더 이상 확인할 필요 없음
+            }
+
+            if (lane == checkNote.lane) {
+                this.displayedNotes.splice(i, 1); //노트 삭제
+                this.hit++;
+                this.combo++;
+                this.lastHitTime = textDisplayedTime;
+                break;
+            }
+        }
     }
 
     buttonReleased(lane) {
