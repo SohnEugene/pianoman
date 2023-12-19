@@ -57,8 +57,10 @@ class NPC {
                 button1.setTitle("다음으로");
             } else {
                 button1.setTitle("연주하러 가기");
-                button2.setTitle("다른 손님과\n대화하기");
-                button2.show();
+                textSize(16);
+                text("다른 손님과\n대화하기", 880-170,920);
+                //button2.setTitle("다른 손님과\n대화하기");
+                //button2.show();
             }
             button1.show();
         } else {
@@ -79,8 +81,10 @@ class NPC {
                 button1.setTitle("다음으로");
             } else {
                 if (this.mode == 2) {
-                    button2.setTitle("다시 연주하기");
-                    button2.show();
+                    textSize(16);
+                    text("다시 연주하기", 880-170,920);
+                    //button2.setTitle("다시 연주하기");
+                    //button2.show();
                 }
                 button1.setTitle("로비로 가기");
             }

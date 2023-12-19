@@ -435,8 +435,10 @@ function missionFinished() {
     let button2 = new Button(880-75-170, 920-37.5);
     if (completePointer == missionCompleteScript.length - 1) {
       button1.setTitle("다른 손님에게\n연주하기");
-      button2.setTitle("처음으로");
-      button2.show();
+      textSize(16);
+      text("처음으로", 880-170, 920);
+      //button2.setTitle("처음으로");
+      //button2.show();
     } else {
       button1.setTitle("다음으로");
     }
